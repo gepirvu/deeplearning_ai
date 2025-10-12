@@ -1,18 +1,4 @@
-I can't directly create downloadable files, but I can provide you with the content that you can easily save as README.md. Here's what you should do:
-Option 1: Copy and Save
-
-Copy the text below
-Create a new file named README.md in your project directory
-Paste the content and save
-
-Option 2: Use Command Line
-Copy the content below and run:
-bashcat > README.md << 'EOF'
-[paste content here]
-EOF
-Here's the complete README.md content:
-
-markdown# arXiv Research MCP Server
+# arXiv Research MCP Server
 
 A Model Context Protocol (MCP) server that provides tools for searching and retrieving information from arXiv papers, with both terminal and web interfaces.
 
