@@ -1,0 +1,1 @@
+Databricks Managed MCP (Model Context Protocol) is a service that enables seamless integration between large language models and external tools or resources on AWS environments. This managed service simplifies the process of extending AI capabilities in cloud deployments while providing a secure framework for data access and API interactions within the Databricks ecosystem.

@@ -24,7 +24,7 @@ class MCP_chatbot:
     async def process_query(self, query):
         messages = [{'role':'user', 'content':query}]
         response = self.anthropic.messages.create(max_tokens = 2024,
-                                  model = 'claude-3-7-sonnet-20250219',
+                                  model = 'claude-sonnet-4-20250514',
                                   tools = self.available_tools,
                                   messages = messages)
         process_query = True

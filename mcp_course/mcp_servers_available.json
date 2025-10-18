@@ -1,12 +1,11 @@
 {
     "mcpServers": {
         
-        "filesystem": {
+        "filesystem3": {
             "command": "npx",
             "args": [
                 "-y",
                 "@modelcontextprotocol/server-filesystem",
-                "C:\\Users\\georg\\OneDrive\\Desktop\\Work\\01_ml_and_ai\\deeplearning_ai\\mcp_course",
                 "."
             ]
         },
@@ -19,6 +18,11 @@
         "fetch": {
             "command": "uvx",
             "args": ["mcp-server-fetch"]
+        },
+
+        "filesystem": {
+            "command": "uv",
+            "args": ["run", "pyfs_mcp_server.py"]
         }
     }
 }
