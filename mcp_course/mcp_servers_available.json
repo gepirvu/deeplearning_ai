@@ -6,7 +6,7 @@
             "args": [
                 "-y",
                 "@modelcontextprotocol/server-filesystem",
-                "C:/Users/georg/OneDrive/Desktop/Work/01_ml_and_ai/deeplearning_ai/mcp_course",
+                "C:\\Users\\georg\\OneDrive\\Desktop\\Work\\01_ml_and_ai\\deeplearning_ai\\mcp_course",
                 "."
             ]
         },

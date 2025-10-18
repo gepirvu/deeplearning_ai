@@ -44,12 +44,19 @@ class MCP_chatbot:
         try:
             server_params = StdioServerParameters(**server_config)
 
-            await asyncio.sleep(4)  # Ensure server is ready
+
+            
             stdio_transport = await self.exit_stack.enter_async_context(
                 stdio_client(server_params)
             )
 
             read, write = stdio_transport
+
+            if server_name == "filesystem":
+                await asyncio.sleep(5.0)
+            else:
+                await asyncio.sleep(0.5)
+
             session = await self.exit_stack.enter_async_context(
                 ClientSession(read, write)
             )
@@ -110,19 +117,27 @@ class MCP_chatbot:
 
                     print(f"Calling tool {tool_name} with args {tool_args}")
                     
-                    # Call a tool
+                   
+                # Call a tool
                     session = self.tool_to_session[tool_name]
 
                     result = await session.call_tool(tool_name, arguments=tool_args)
+
+                    # Debug: see what we got
+                    #print(f"Result type: {type(result.content)}")
+                    #print(f"Result content: {result.content}")
+
+                    tool_result_content = result.content if isinstance(result.content, list) else [{"type": "text", "text": str(result.content)}]
                     messages.append({"role": "user", 
                                     "content": [
                                         {
                                             "type": "tool_result",
                                             "tool_use_id":tool_id,
-                                            "content": result.content
+                                            "content": tool_result_content
                                         }
                                     ]
                                     })
+                        
                     response = self.anthropic.messages.create(max_tokens = 2024,
                                     model = 'claude-3-7-sonnet-20250219', 
                                     tools = self.available_tools,
